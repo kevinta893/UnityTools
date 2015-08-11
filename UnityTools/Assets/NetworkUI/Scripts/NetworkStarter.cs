@@ -14,8 +14,6 @@ public class NetworkStarter : MonoBehaviour {
 	public float sendRate = 15.0f;
 
 	[Header("Initialization")]
-	[Tooltip("Keeps the game running in the background even when not active. Useful for localhost debugging")]
-	public bool keepActiveInBackground = true;
 	public bool autoConnectAsClient = false;
 	public bool autoStartServer = false;
 	public string autoConnectIP = "127.0.0.1";
@@ -47,8 +45,6 @@ public class NetworkStarter : MonoBehaviour {
 		statusText.gameObject.SetActive(showDebugOnScreenText);
 		SetStatusText("Disconnected");
 
-		Application.runInBackground = keepActiveInBackground;
-
 		if (autoConnectAsClient == true) {
 			runRetry = true;
 		}
@@ -56,8 +52,6 @@ public class NetworkStarter : MonoBehaviour {
 		if (autoStartServer == true) {
 			StartServer ();
 		}
-
-
 	}
 	
 	private bool runRetry = false;
